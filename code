@@ -1,0 +1,17 @@
+import itertools
+
+def lines(a, b):
+    """Return lines in both a and b"""
+    current_line_one = []
+    current_line_two = []
+
+    for string_one, string_two in zip(a, b):
+        for character_one, character_two in zip(string_one, string_two):
+            if character_one == '\n' or character_two == '\n':
+                if current_line_one == current_line_two:
+                    print (''.join(map(str, current_line_one)))
+                current_line_one = []
+                current_line_two = []
+            else:
+                current_line_one.append(character_one)
+                current_line_two.append(character_two)
