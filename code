@@ -1,17 +1,18 @@
-import itertools
+def sums(number):
+    to_remember_the_number = number
+    while number != 0:
+        thisDigit = number % 10
+        number = number // 10
 
-def lines(a, b):
-    """Return lines in both a and b"""
-    current_line_one = []
-    current_line_two = []
+        if thisDigit == 9:
+            return False
+        else:
+            continue
+    return(1 / to_remember_the_number)
 
-    for string_one, string_two in zip(a, b):
-        for character_one, character_two in zip(string_one, string_two):
-            if character_one == '\n' or character_two == '\n':
-                if current_line_one == current_line_two:
-                    print (''.join(map(str, current_line_one)))
-                current_line_one = []
-                current_line_two = []
-            else:
-                current_line_one.append(character_one)
-                current_line_two.append(character_two)
+sum = 0
+add_up_to_this = 1000000000000
+
+for i in range(1, add_up_to_this):
+    sum = sum + sums(i)
+print(sum)
